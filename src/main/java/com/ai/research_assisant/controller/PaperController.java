@@ -26,6 +26,11 @@ public class PaperController {
     @Autowired
     private PapersService paperService;
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Paper> getPaperById(@PathVariable String id) {
+        Paper paper = paperService.getPaperById(id);
+        return ResponseEntity.ok(paper);
+    }
 
     @PostMapping("/upload")
     public ResponseEntity<?> uploadPaper(@RequestParam("file") MultipartFile file) {

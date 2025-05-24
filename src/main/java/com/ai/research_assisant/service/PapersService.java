@@ -149,6 +149,10 @@ public class PapersService {
         return paperRepository.findAllById(bookmarkIds);
     }
 
+    public Paper getPaperById(String id) {
+        return paperRepository.findById(new ObjectId(id))
+                .orElseThrow(() -> new RuntimeException("Paper not found"));
+    }
 }
 
 
